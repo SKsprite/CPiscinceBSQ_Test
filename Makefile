@@ -4,6 +4,10 @@ CFLAGS	= -Wall -Werror -Wextra
 OBJ		= $(SRC:.c=.o)
 NAME	= test_harness
 
+ifdef BSQ_PATH
+CFLAGS	+= -DBSQ='"$(BSQ_PATH)"'
+endif
+
 all: $(NAME)
 
 $(NAME): $(OBJ)

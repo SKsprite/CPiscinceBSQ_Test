@@ -17,7 +17,9 @@
 #include <time.h>
 #include <sys/stat.h>
 
-#define BSQ             "../bsq"
+#ifndef BSQ
+# define BSQ            "./bsq"
+#endif
 #define VDIR            "valid_maps"
 #define IDIR            "invalid_maps"
 #define LDIR            "large_maps"
