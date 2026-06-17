@@ -38,18 +38,16 @@ static int  g_show = 0;
 /* Utilities                                                           */
 /* ------------------------------------------------------------------ */
 
-static char rand_letter(void)
+static char rand_printable(void)
 {
-    static const char *pool =
-        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    return pool[rand() % 52];
+    return (char)(32 + rand() % 95);
 }
 
 static void pick_chars(char *e, char *o, char *s)
 {
-    *e = rand_letter();
-    do { *o = rand_letter(); } while (*o == *e);
-    do { *s = rand_letter(); } while (*s == *e || *s == *o);
+    *e = rand_printable();
+    do { *o = rand_printable(); } while (*o == *e);
+    do { *s = rand_printable(); } while (*s == *e || *s == *o);
 }
 
 static void ensure_dirs(void)
